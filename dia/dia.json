@@ -1,0 +1,42 @@
+{
+ "L0" : {
+   "description": "",
+   "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/L0.png",
+   "children": {
+     "L01" : {
+       "description": "",
+       "img" : ""
+     }
+   }
+ },
+ "L1" : {
+   "description": "",
+   "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/L1.png",
+   "children": {
+     "L01" : {
+       "description": "",
+       "img" : ""
+     }
+   }
+ },
+ "L2" : {
+   "description": "",
+   "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/L2.png",
+   "children": {
+     "L01" : {
+       "description": "",
+       "img" : ""
+     }
+   }
+ },
+ "L3" : {
+   "description": "",
+   "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/L3.png",
+   "children": {
+     "L01" : {
+       "description": "",
+       "img" : ""
+     }
+   }
+ }
+}
