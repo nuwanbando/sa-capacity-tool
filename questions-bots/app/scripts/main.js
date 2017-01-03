@@ -257,7 +257,7 @@ function getSchema () {
       }
   };
   if(!GlobalPref.dev){
-    schObj = GlobalPref.schema;
+    schObj.properties = GlobalPref.schema;
   }
   var properties = {};
   var answerCheck = {};
