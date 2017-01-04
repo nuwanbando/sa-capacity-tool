@@ -2,7 +2,7 @@
 	"Q1":{
             "title": "api calls per day",
             "description": "API calls per days at peak",
-            "type": "string", /* slider is better*/
+            "type": "string",
             "enum": [
                 {"val":"100K<", "weight":"L0"},
                 {"val":"100K-500K", "weight":"L0"},
@@ -15,7 +15,7 @@
     "Q2":{
             "title": "API calls per sec",
             "description": "API calls per second at peak",
-            "type": "string", /* slider is better*/
+            "type": "string",
             "enum": [
                 {"val":"10", "weight":"L0"},
                 {"val":"10-100", "weight":"L0"},
@@ -38,7 +38,7 @@
     "Q4":{
             "title": "message size",
             "description": "average size of the message that goes through the gateway",
-            "type": "string", /* slider is better*/
+            "type": "string",
             "enum": [
                 {"val":"1KB", "weight":"L0"},
                 {"val":"1KB-100KB", "weight":"L0"},
@@ -50,7 +50,7 @@
     "Q5":{
             "title": "dev portal users",
             "description": "API calls per days at peak",
-            "type": "string", /* slider is better*/
+            "type": "string",
             "enum": [
                 {"val":"5K<", "weight":"L0"},
                 {"val":"5K-100K", "weight":"L0"},
@@ -116,7 +116,7 @@
     "Q11":{
             "title": "High avaibility",
             "description": "amount for avaibility",
-            "type": "string", /* slider is better*/
+            "type": "string",
             "enum": [
                 {"val":"90%", "weight":"LO"},
                 {"val":"99%", "weight":"LO4"},
