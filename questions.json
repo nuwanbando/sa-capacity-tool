@@ -34,7 +34,7 @@
                 {"val":"no", "weight":"L0"}
             ],
             "required": true
-        },   
+        },
     "Q4":{
             "title": "message size",
             "description": "average size of the message that goes through the gateway",
@@ -70,7 +70,7 @@
                 {"val":"3h+", "weight":"L2"}
             ],
             "required": true
-        },   
+        },
     "Q7":{
             "title": "Do you need approval workflows",
             "description": "developer registration / application registration / api subscription",
@@ -167,6 +167,6 @@
                 {"val":"both", "weight":"L0"},
             ],
             "required": true
-        },
+        }
 
 }
