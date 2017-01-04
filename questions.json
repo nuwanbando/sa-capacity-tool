@@ -164,7 +164,7 @@
             "enum": [
                 {"val":"internal", "weight":"L0"},
                 {"val":"external", "weight":"L0"},
-                {"val":"both", "weight":"L0"},
+                {"val":"both", "weight":"L0"}
             ],
             "required": true
         }
