@@ -4,9 +4,12 @@ function loadResources(){
   return $.get('https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/dia.json')
   .then(function (data) {
     GlobalPref.weights  = JSON.parse(data);
-  }).then($.get('https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/questions.json'))
-  .then(function (data) {
-    GlobalPref.schema  = JSON.parse(data);
+  })
+  .then(function () {
+    return $.get('https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/questions.json')
+    .then(function(data){
+      GlobalPref.schema  = JSON.parse(data);
+    })
   });
 }
 
@@ -347,8 +350,10 @@ $(document).ready(function() {
       var weightDescription = weightDescriptions[lGrade];
 
       var image_tag = '<img width="400px" src="'+weightDescription.img+'" alt="'+weightDescription.description+'"/>';
-        $("#diagram").html(image_tag);
-
+      for (var i = 0; i < oGrade.length; i++) {
+         image_tag += '<img width="400px" src="'+oGrade[i].img+'" alt="'+oGrade[i].description+'"/>';
+      }
+      $("#diagram").html(image_tag);
     });
   });
 
