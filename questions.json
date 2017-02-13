@@ -1,6 +1,6 @@
 {
 	"Q1":{
-            "title": "api calls per day",
+            "title": "API calls per day",
             "description": "API calls per days at peak",
             "type": "string",
             "enum": [
@@ -13,7 +13,7 @@
             "required": true
         },
     "Q2":{
-            "title": "API calls per sec",
+            "title": "API calls per sec.",
             "description": "API calls per second at peak",
             "type": "string",
             "enum": [
@@ -26,7 +26,7 @@
             "required": true
         },
     "Q3":{
-            "title": "is the load evenly distributed",
+            "title": "Is the load evenly distributed",
             "description": "",
             "type": "string",
             "enum": [
@@ -36,7 +36,7 @@
             "required": true
         },
     "Q4":{
-            "title": "message size",
+            "title": "Message size",
             "description": "average size of the message that goes through the gateway",
             "type": "string",
             "enum": [
@@ -48,7 +48,7 @@
             "required": true
         },
     "Q5":{
-            "title": "dev portal users",
+            "title": "Developer portal users",
             "description": "API calls per days at peak",
             "type": "string",
             "enum": [
@@ -61,7 +61,7 @@
             "required": true
         },
     "Q6":{
-            "title": "Average activty duration",
+            "title": "Developer portal average activity duration",
             "description": "active user session time",
             "type": "string",
             "enum": [
@@ -72,7 +72,7 @@
             "required": true
         },
     "Q7":{
-            "title": "Do you need approval workflows",
+            "title": "Do you need approval work-flows",
             "description": "developer registration / application registration / api subscription",
             "type": "string",
             "enum": [
@@ -82,20 +82,11 @@
             "required": true
         },
     "Q8":{
-            "title": "Simple tier based throttling ? (gold / silver / unlimited (customizable)",
-            "description": "(gold / silver / unlimited - tiers are customizable",
+            "title": "Throttling",
+            "description": "Throttling capability",
             "type": "string",
             "enum": [
-                {"val":"yes", "weight":"L0"},
-                {"val":"no", "weight":"L0"}
-            ],
-            "required": true
-        },
-    "Q9":{
-            "title": "Advanced throttling",
-            "description": "anything above simple tier based option",
-            "type": "string",
-            "enum": [
+                {"val":"simple tiers", "weight":"L0"},
                 {"val":"attribute based", "weight":"L0"},
                 {"val":"jwt token based", "weight":"L0"},
                 {"val":"header based", "weight":"L0"},
@@ -103,7 +94,7 @@
             ],
             "required": true
         },
-    "Q10":{
+    "Q9":{
             "title": "High avaibility",
             "description": "amount for avaibility",
             "type": "string",
@@ -115,7 +106,7 @@
             ],
             "required": true
         },
-    "Q11":{
+    "Q10":{
             "title": "Distater recovery",
             "description": "",
             "type": "string",
@@ -125,7 +116,7 @@
             ],
             "required": true
         },
-    "Q12":{
+    "Q11":{
             "title": "separae sandbox gateway",
             "description": "API Manager has a concept of a production and sandbox gateways",
             "type": "string",
