@@ -5,7 +5,10 @@
    "children": {
      "L01" : {
        "description": "",
-       "img" : ""
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO1.png"
+     },"L05" : {
+       "description": "",
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO5.png"
      }
    }
  },
@@ -15,7 +18,10 @@
    "children": {
      "L01" : {
        "description": "",
-       "img" : ""
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO1.png"
+     },"L05" : {
+       "description": "",
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO5.png"
      }
    }
  },
@@ -25,7 +31,10 @@
    "children": {
      "L01" : {
        "description": "",
-       "img" : ""
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO1.png"
+     },"L05" : {
+       "description": "",
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO5.png"
      }
    }
  },
@@ -35,7 +44,10 @@
    "children": {
      "L01" : {
        "description": "",
-       "img" : ""
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO1.png"
+     },"L05" : {
+       "description": "",
+       "img" : "https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/LO5.png"
      }
    }
  }

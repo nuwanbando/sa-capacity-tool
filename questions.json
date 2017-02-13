@@ -82,16 +82,6 @@
             "required": true
         },
     "Q8":{
-            "title": "Bringing your own key manager",
-            "description": "WSO2 API Manager comes with a OAuth key server however you can opt-out for your own",
-            "type": "string",
-            "enum": [
-                {"val":"yes", "weight":"LO2"},
-                {"val":"no", "weight":"L0"}
-            ],
-            "required": true
-        },
-    "Q9":{
             "title": "Simple tier based throttling ? (gold / silver / unlimited (customizable)",
             "description": "(gold / silver / unlimited - tiers are customizable",
             "type": "string",
@@ -101,70 +91,47 @@
             ],
             "required": true
         },
-    "Q10":{
+    "Q9":{
             "title": "Advanced throttling",
             "description": "anything above simple tier based option",
             "type": "string",
             "enum": [
-                {"val":"attribute based", "weight":"LO1"},
+                {"val":"attribute based", "weight":"L0"},
                 {"val":"jwt token based", "weight":"L0"},
                 {"val":"header based", "weight":"L0"},
                 {"val":"pattern based", "weight":"L0"}
             ],
             "required": true
         },
-    "Q11":{
+    "Q10":{
             "title": "High avaibility",
             "description": "amount for avaibility",
             "type": "string",
             "enum": [
-                {"val":"90%", "weight":"LO"},
-                {"val":"99%", "weight":"LO4"},
-                {"val":"99.90%", "weight":"LO3"},
-                {"val":"99.99%", "weight":"LO3"}
+                {"val":"90%", "weight":"L0"},
+                {"val":"99%", "weight":"L0"},
+                {"val":"99.90%", "weight":"L0"},
+                {"val":"99.99%", "weight":"L0"}
             ],
             "required": true
         },
-    "Q12":{
+    "Q11":{
             "title": "Distater recovery",
             "description": "",
             "type": "string",
             "enum": [
-                {"val":"yes", "weight":"LO8"},
+                {"val":"yes", "weight":"L0"},
                 {"val":"no", "weight":"L0"}
             ],
             "required": true
         },
-    "Q13":{
+    "Q12":{
             "title": "separae sandbox gateway",
             "description": "API Manager has a concept of a production and sandbox gateways",
             "type": "string",
             "enum": [
                 {"val":"yes", "weight":"LO5"},
                 {"val":"no", "weight":"L0"}
-            ],
-            "required": true
-        },
-    "Q14":{
-            "title": "authentication type",
-            "description": "default is OAuth",
-            "type": "string",
-            "enum": [
-                {"val":"OAuth2", "weight":"L0"},
-                {"val":"SAML2 bearer", "weight":"L0"},
-                {"val":"NTLM", "weight":"LO6"},
-                {"val":"Other", "weight":"LO6"}
-            ],
-            "required": true
-        },
-    "Q15":{
-            "title": "Type of api management",
-            "description": "",
-            "type": "string",
-            "enum": [
-                {"val":"internal", "weight":"L0"},
-                {"val":"external", "weight":"L0"},
-                {"val":"both", "weight":"L0"}
             ],
             "required": true
         }
