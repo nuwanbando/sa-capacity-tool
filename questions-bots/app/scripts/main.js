@@ -1,5 +1,5 @@
 var GlobalPref = {};
-GlobalPref.dev = false;
+GlobalPref.dev = true;
 function loadResources(){
   return $.get('https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/dia.json')
   .then(function (data) {
@@ -128,6 +128,7 @@ function getSchema () {
                   "title": "message size",
                   "description": "average size of the message that goes through the gateway",
                   "type": "string", /* slider is better*/
+                  "format": "range",
                   "enum": [
                       {"val":"1KB", "weight":"L0"},
                       {"val":"1KB-100KB", "weight":"L0"},
@@ -308,6 +309,7 @@ function lGradeCheck (current, grade) {
 $(document).ready(function() {
   loadResources().then(function() {
     var BrutusinForms = brutusin['json-forms'];
+    BrutusinForms.bootstrap.addFormatDecorator("range", "string");
     var schemaObj = getSchema();
     var schema = schemaObj.schema;
     var bf = BrutusinForms.create(schema);
