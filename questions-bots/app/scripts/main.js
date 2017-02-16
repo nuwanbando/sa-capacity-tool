@@ -1,5 +1,7 @@
 var GlobalPref = {};
-GlobalPref.dev = true;
+var bf;
+var schemaObj;
+GlobalPref.dev = false;
 function loadResources(){
   return $.get('https://raw.githubusercontent.com/nuwanbando/sa-capacity-tool/master/dia/dia.json')
   .then(function (data) {
@@ -290,6 +292,40 @@ function oGradeCheck(grade){
   }
 }
 
+function generateDiagram() {
+  var answers = bf.getData();
+  var lGrade;
+  var oGrade = [];
+  _.each(answers, function(value, key){
+    var answerWeight = schemaObj.answerCheck[key];
+    if(oGradeCheck(answerWeight[value])){
+      oGrade.push(answerWeight[value]);
+    }
+    else {
+      lGrade = lGradeCheck(lGrade, answerWeight[value]);
+    }
+    console.log("Current value is "+ value + " and answer weight is "+ answerWeight[value] + " and current L grade is "+ lGrade);
+  });
+
+  // populate the images
+  console.log("Final weight for L " + lGrade + " and final weights for O " + JSON.stringify(oGrade));
+  var weightDescriptions =  getWeights();
+  var weightDescription = weightDescriptions[lGrade];
+
+  var image_tag = '<img width="400px" src="'+weightDescription.img+'" alt="'+weightDescription.description+'"/>';
+  //for (var i = 0; i < oGrade.length; i++) {
+  //   image_tag += '<img width="400px" src="'+oGrade[i].img+'" alt="'+oGrade[i].description+'"/>';
+  //}
+  var user = Cookies.get('user');
+  if (user){
+    $("#diagram").html(image_tag);
+    $("#download-button").show();
+    $("#information").hide();
+  }else{
+    $("#information").show();
+  }
+}
+
 function lGradeCheck (current, grade) {
   if(current){
     if(grade === current){
@@ -307,12 +343,22 @@ function lGradeCheck (current, grade) {
 }
 
 $(document).ready(function() {
+  $( "#information-form" ).submit(function( event ) {
+    event.preventDefault();
+    var email = $('#inputEmail').val();
+    var companyName = $('#companyName').val();
+    Cookies.set('user', {
+      email : email,
+      companyName: companyName
+    });
+    generateDiagram();
+  });
   loadResources().then(function() {
     var BrutusinForms = brutusin['json-forms'];
     BrutusinForms.bootstrap.addFormatDecorator("range", "string");
-    var schemaObj = getSchema();
+    schemaObj  = getSchema();
     var schema = schemaObj.schema;
-    var bf = BrutusinForms.create(schema);
+    bf = BrutusinForms.create(schema);
     bf.schemaResolver = function (names, data, cb) {
         var schemas = new Object();
         var schema = new Object();
@@ -331,32 +377,7 @@ $(document).ready(function() {
     var container = document.getElementById('questions');
     bf.render(container, {});
 
-    $( "#questions form" ).change(function() {
-      var answers = bf.getData();
-      var lGrade;
-      var oGrade = [];
-      _.each(answers, function(value, key){
-        var answerWeight = schemaObj.answerCheck[key];
-        if(oGradeCheck(answerWeight[value])){
-          oGrade.push(answerWeight[value]);
-        }
-        else {
-          lGrade = lGradeCheck(lGrade, answerWeight[value]);
-        }
-        console.log("Current value is "+ value + " and answer weight is "+ answerWeight[value] + " and current L grade is "+ lGrade);
-      });
-
-      // populate the images
-      console.log("Final weight for L " + lGrade + " and final weights for O " + JSON.stringify(oGrade));
-      var weightDescriptions =  getWeights();
-      var weightDescription = weightDescriptions[lGrade];
-
-      var image_tag = '<img width="400px" src="'+weightDescription.img+'" alt="'+weightDescription.description+'"/>';
-      for (var i = 0; i < oGrade.length; i++) {
-         image_tag += '<img width="400px" src="'+oGrade[i].img+'" alt="'+oGrade[i].description+'"/>';
-      }
-      $("#diagram").html(image_tag);
-    });
+    $( "#questions form" ).change(generateDiagram);
   });
 
 

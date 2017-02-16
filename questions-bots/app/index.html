@@ -53,9 +53,27 @@
        </div>
        <div class="col-sm-7 col-sm-offset-5 col-md-7 col-md-offset-5 main">
          <h1 class="page-header">Solution Architecture for API Manager</h1>
-
+         <div id="information" class="row">
+           <p>
+            Please fill below information to view the deployment architecture.
+           </p>
+           <form id="information-form">
+             <div class="form-group">
+               <label for="inputEmail">Email address</label>
+               <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+             </div>
+             <div class="form-group">
+               <label for="companyName">Company Name</label>
+               <input type="text" class="form-control" id="companyName" placeholder="Company name">
+             </div>
+             <button type="submit" class="btn btn-default">Submit</button>
+           </form>
+         </div>
          <div id="diagram" class="row">
 
+         </div>
+         <div id="download-button">
+           <button class="btn btn-default">Download proposal</button>
          </div>
        </div>
      </div>
@@ -77,6 +95,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/js-cookie/src/js.cookie.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -98,11 +117,13 @@
     <script src="/bower_components/underscore/underscore.js"></script>
     <script src="/bower_components/json-forms/dist/js/brutusin-json-forms.js"></script>
     <script src="/bower_components/json-forms/dist/js/brutusin-json-forms-bootstrap.js"></script>
+    <script src="/bower_components/js-cookie/src/js.cookie.js"></script>
     <!-- endbuild -->
 
     <script src="/bower_components/underscore/underscore.js"></script>
     <script src="/bower_components/json-forms/dist/js/brutusin-json-forms.js"></script>
     <script src="/bower_components/json-forms/dist/js/brutusin-json-forms-bootstrap.js"></script>
+    <script src="/bower_components/js-cookie/src/js.cookie.js"></script>
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
