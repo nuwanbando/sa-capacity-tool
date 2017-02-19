@@ -15,6 +15,17 @@ function loadResources(){
   });
 }
 
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBcs-CirY48iLli8sZD5lSwsgeKlKz790g",
+  authDomain: "wso2-sa-tool.firebaseapp.com",
+  databaseURL: "https://wso2-sa-tool.firebaseio.com",
+  storageBucket: "wso2-sa-tool.appspot.com",
+  messagingSenderId: "775647198776"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
 function getWeights() {
  var weights = {
  "L0" : {
@@ -311,8 +322,50 @@ function lGradeCheck (current, grade) {
   }
   return grade;
 }
+function downloadDataUrlFromJavascript(filename, dataUrl) {
 
+    // Construct the a element
+    var link = document.createElement("a");
+    link.download = filename;
+    link.target = "_blank";
+
+    // Construct the uri
+    link.href = dataUrl;
+    document.body.appendChild(link);
+    link.click();
+
+    // Cleanup the DOM
+    document.body.removeChild(link);
+    delete link;
+}
 $(document).ready(function() {
+
+  $("#download-button .btn").click(function(){
+    var user = JSON.parse(Cookies.get('user'));
+    var data = bf.getData();
+    for (var question in schemaObj.schema.properties) {
+      if (schemaObj.schema.properties.hasOwnProperty(question)) {
+        var q = schemaObj.schema.properties[question];
+         data[question] = {
+           answer : data[question],
+           question : q.title
+         };
+      }
+    }
+    console.log(data);
+    firebase.database().ref('downloads/' + moment().format('YYYY-MM-DD') + '/' + md5(user.email)).set({
+       user : user,
+       data : data
+    });
+    html2canvas($("#diagram")[ 0 ], {
+      useCORS: true,
+      onrendered: function(canvas) {
+        // document.body.appendChild(canvas);
+        downloadDataUrlFromJavascript("diagram.png", canvas.toDataURL());
+      }
+    });
+  });
+
   $( "#information-form" ).submit(function( event ) {
     event.preventDefault();
     var email = $('#inputEmail').val();
