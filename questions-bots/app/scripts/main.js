@@ -294,9 +294,11 @@ function generateDiagram() {
   var weightDescription = weightDescriptions[lGrade];
 
   var image_tag = '<img width="400px" src="'+weightDescription.img+'" alt="'+weightDescription.description+'"/>';
-  //for (var i = 0; i < oGrade.length; i++) {
-  //   image_tag += '<img width="400px" src="'+oGrade[i].img+'" alt="'+oGrade[i].description+'"/>';
-  //}
+  for (var i = 0; i < oGrade.length; i++) {
+    if(weightDescription.children[oGrade[i]]){
+        image_tag += '<img width="200px" src="'+weightDescription.children[oGrade[i]].img+'" alt="'+weightDescription.children[oGrade[i]].description+'"/>';
+    }
+  }
   var user = Cookies.get('user');
   if (user){
     $("#diagram").html(image_tag);
@@ -357,10 +359,25 @@ $(document).ready(function() {
        user : user,
        data : data
     });
-    html2canvas($("#diagram")[ 0 ], {
+    var div = $("#diagram");
+    var scaleBy = 5;
+    var w = 1000;
+    var h = 1000;
+    div = div[0];
+    var canvas = document.createElement('canvas');
+    canvas.width = w * scaleBy;
+    canvas.height = h * 10;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    var context = canvas.getContext('2d');
+    context.scale(scaleBy, scaleBy);
+    html2canvas(div, {
       useCORS: true,
+      canvas : canvas,
+      background: '#fff',
       onrendered: function(canvas) {
-        // document.body.appendChild(canvas);
+        // canvas.width = 500;
+        // canvas.height = 500;
         downloadDataUrlFromJavascript("diagram.png", canvas.toDataURL());
       }
     });
